@@ -1,0 +1,35 @@
+  .sidebar {
+        width: 260px;
+        height: 100vh;
+        background: #1a1f36;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 30px 20px;
+        color: #fff;
+        border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .sidebar .brand {
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+    }
+    .sidebar .nav-link {
+        color: #cfd3e0 !important;
+        padding: 12px 10px;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+    .sidebar .nav-link:hover,
+    .sidebar .nav-link.active {
+        background: #2b3250;
+        color: #ffffff !important;
+    }
+    .sidebar hr {
+        border-color: rgba(255,255,255,0.15);
+        margin: 25px 0;
+    }

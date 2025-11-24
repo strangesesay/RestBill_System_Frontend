@@ -1,0 +1,28 @@
+.hero {
+    min-height: 100vh;
+    background: url('/src/assets/hero.jpg') center/cover no-repeat,
+                linear-gradient(to bottom right, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+    position: relative;
+}
+
+.hero-content {
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.btn-custom {
+    background-color: #ff7f27;
+    color: #fff;
+    border-radius: 30px;
+    transition: 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #ff6a00;
+    transform: translateY(-2px);
+}
+
+/* Optional scroll animation */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
