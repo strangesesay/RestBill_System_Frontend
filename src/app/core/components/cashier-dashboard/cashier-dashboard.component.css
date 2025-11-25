@@ -1,0 +1,16 @@
+/* cashier-dashboard.component.css */
+/* Minimal local tweaks if needed */
+
+:host {
+  display: block;
+}
+
+/* ensure dropdowns and small controls inherit spacing */
+.topbar .dropdown .dropdown-menu {
+  min-width: 180px;
+}
+
+/* smaller screens */
+@media (max-width: 576px) {
+  .topbar .d-none.d-sm-block { display: none !important; }
+}

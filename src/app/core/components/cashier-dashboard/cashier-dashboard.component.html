@@ -1,1 +1,241 @@
-<p>cashier-dashboard works!</p>
+<app-navbar/>
+
+
+<!-- cashier-dashboard.component.html -->
+<app-navbar></app-navbar>
+
+<div class="app-shell">
+  <main class="main-wrap">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="search-box">
+        <div class="input-group">
+          <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+          <input class="form-control border-start-0" placeholder="Search orders, items or customers" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-outline-secondary" title="Notifications"><i class="bi bi-bell"></i></button>
+
+        <div class="dropdown">
+          <a class="d-flex align-items-center text-decoration-none" role="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="avatar">
+            <div class="d-none d-sm-block">
+              <div style="font-weight:700">Cashier A</div>
+              <small class="text-muted">Till #1</small>
+            </div>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Switch Till</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Workspace -->
+    <section class="workspace">
+      <!-- LEFT: Quick menu & categories -->
+      <aside class="menu-card" aria-labelledby="menuHeading">
+        <div class="d-flex justify-content-between align-items-center">
+          <h6 id="menuHeading" class="mb-0">Menu</h6>
+          <small class="text-muted">Tap to add</small>
+        </div>
+
+        <div class="category-list mt-2" role="tablist" aria-label="Categories">
+          <button class="btn btn-sm btn-outline-primary category-btn" type="button">All</button>
+          <button class="btn btn-sm btn-outline-primary category-btn" type="button">Starters</button>
+          <button class="btn btn-sm btn-outline-primary category-btn" type="button">Mains</button>
+          <button class="btn btn-sm btn-outline-primary category-btn" type="button">Drinks</button>
+          <button class="btn btn-sm btn-outline-primary category-btn" type="button">Desserts</button>
+        </div>
+
+        <div class="product-grid" role="list">
+          <!-- Example product cards (repeat as needed from data) -->
+          <article class="product" role="listitem" tabindex="0" aria-label="Grilled Chicken">
+            <img src="https://via.placeholder.com/80" alt="Grilled Chicken">
+            <div class="meta">
+              <h6 class="mb-0">Grilled Chicken</h6>
+              <small>₵18.00 • 12 in stock</small>
+            </div>
+            <div class="text-end">
+              <div class="text-muted small">Add</div>
+              <div style="font-weight:700">₵18</div>
+            </div>
+          </article>
+
+          <article class="product" role="listitem" tabindex="0" aria-label="Fries">
+            <img src="https://via.placeholder.com/80" alt="Fries">
+            <div class="meta">
+              <h6 class="mb-0">Fries</h6>
+              <small>₵6.00 • 30 in stock</small>
+            </div>
+            <div class="text-end">
+              <div class="text-muted small">Add</div>
+              <div style="font-weight:700">₵6</div>
+            </div>
+          </article>
+
+          <article class="product" role="listitem" tabindex="0" aria-label="Coke">
+            <img src="https://via.placeholder.com/80" alt="Coke">
+            <div class="meta">
+              <h6 class="mb-0">Coke</h6>
+              <small>₵4.00 • 50 in stock</small>
+            </div>
+            <div class="text-end">
+              <div class="text-muted small">Add</div>
+              <div style="font-weight:700">₵4</div>
+            </div>
+          </article>
+
+          <article class="product" role="listitem" tabindex="0" aria-label="Ice Cream">
+            <img src="https://via.placeholder.com/80" alt="Ice Cream">
+            <div class="meta">
+              <h6 class="mb-0">Ice Cream</h6>
+              <small>₵8.00 • 20 in stock</small>
+            </div>
+            <div class="text-end">
+              <div class="text-muted small">Add</div>
+              <div style="font-weight:700">₵8</div>
+            </div>
+          </article>
+        </div>
+      </aside>
+
+      <!-- CENTER: Current order / ticket -->
+      <section class="order-card" aria-labelledby="orderHeading">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h5 id="orderHeading" class="mb-0">Current Order</h5>
+            <small class="text-muted">Order # — Table / Takeaway</small>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary btn-sm" title="Print"><i class="bi bi-printer"></i> Print</button>
+            <button class="btn btn-outline-danger btn-sm" title="Cancel">Cancel</button>
+          </div>
+        </div>
+
+        <div class="order-lines mt-1" role="list" aria-label="Order lines">
+          <div class="order-line d-flex align-items-center" role="listitem">
+            <div class="qty">2</div>
+            <div class="name">Grilled Chicken — Extra sauce</div>
+            <div class="price">₵36.00</div>
+          </div>
+
+          <div class="order-line d-flex align-items-center" role="listitem">
+            <div class="qty">1</div>
+            <div class="name">Fries</div>
+            <div class="price">₵6.00</div>
+          </div>
+
+          <div class="order-line d-flex align-items-center" role="listitem">
+            <div class="qty">3</div>
+            <div class="name">Coke</div>
+            <div class="price">₵12.00</div>
+          </div>
+        </div>
+
+        <div class="mt-auto">
+          <div class="order-actions d-flex justify-content-between align-items-center">
+            <div style="flex:1">
+              <div class="mb-2"><small class="text-muted">Add note</small></div>
+              <input class="form-control form-control-sm" placeholder="e.g. No onions" />
+            </div>
+
+            <div class="text-end" style="min-width:180px">
+              <div class="text-muted small">Items: <strong>6</strong></div>
+              <div class="text-muted small">Subtotal: <strong>₵54.00</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: Payment & summary -->
+      <aside class="pay-card" aria-labelledby="payHeading">
+        <div>
+          <h6 id="payHeading" class="mb-1">Payment</h6>
+          <div class="text-muted small">Select method & complete payment</div>
+        </div>
+
+        <div class="totals mt-2" role="table" aria-label="Totals">
+          <div class="row">
+            <div class="col-7 text-muted">Subtotal</div>
+            <div class="col-5 text-end">₵54.00</div>
+          </div>
+          <div class="row">
+            <div class="col-7 text-muted">Tax (5%)</div>
+            <div class="col-5 text-end">₵2.70</div>
+          </div>
+          <div class="row">
+            <div class="col-7 text-muted">Discount</div>
+            <div class="col-5 text-end">₵0.00</div>
+          </div>
+          <div class="row total mt-2">
+            <div class="col-7">Total</div>
+            <div class="col-5 text-end">₵56.70</div>
+          </div>
+        </div>
+
+        <div>
+          <h6 class="mt-3 mb-2 small">Payment Methods</h6>
+          <div class="payment-methods" role="tablist" aria-label="Payment methods">
+            <button class="pm" type="button">Cash</button>
+            <button class="pm" type="button">Card</button>
+            <button class="pm" type="button">Mobile</button>
+            <button class="pm" type="button">Split</button>
+          </div>
+        </div>
+
+        <div class="mt-3">
+          <h6 class="small mb-2">Quick actions</h6>
+          <div class="quick-actions">
+            <button class="btn btn-outline-primary">Hold</button>
+            <button class="btn btn-outline-secondary">Park</button>
+            <button class="btn btn-success">Checkout</button>
+          </div>
+        </div>
+
+        <div class="recent-card" aria-labelledby="recentHeading">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <strong id="recentHeading">Recent Transactions</strong>
+            <small class="text-muted">today</small>
+          </div>
+          <div class="txn-list" role="list" aria-label="Recent transactions">
+            <div class="d-flex justify-content-between align-items-center mb-2" role="listitem">
+              <div>
+                <div style="font-weight:700">#2584</div>
+                <small class="text-muted">Table 3 — 9:32 AM</small>
+              </div>
+              <div style="font-weight:700">₵42.00</div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-2" role="listitem">
+              <div>
+                <div style="font-weight:700">#2583</div>
+                <small class="text-muted">Takeaway — 8:58 AM</small>
+              </div>
+              <div style="font-weight:700">₵18.50</div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-2" role="listitem">
+              <div>
+                <div style="font-weight:700">#2582</div>
+                <small class="text-muted">Table 5 — 8:02 AM</small>
+              </div>
+              <div style="font-weight:700">₵36.00</div>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </section>
+
+    <footer class="page-footer">
+      © <strong>Ubuntu Restaurants</strong> — RestBilling System • All rights reserved.
+    </footer>
+  </main>
+</div>

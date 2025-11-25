@@ -1,7 +1,7 @@
 .hero {
     min-height: 100vh;
-    background: url('/src/assets/hero.jpg') center/cover no-repeat,
-                linear-gradient(to bottom right, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+    background: url('/assets/hero2.jpeg') center/cover no-repeat,
+                linear-gradient(to bottom right, rgba(12, 12, 12, 0.89), rgba(0, 0, 0, 0.671));
     position: relative;
 }
 
@@ -11,7 +11,7 @@
 
 .btn-custom {
     background-color: #ff7f27;
-    color: #fff;
+    color: #fffdfd;
     border-radius: 30px;
     transition: 0.3s ease;
 }
@@ -19,6 +19,16 @@
 .btn-custom:hover {
     background-color: #ff6a00;
     transform: translateY(-2px);
+}
+
+.hero-content h1 {
+    color: #ffffff;
+}
+
+.hero-content p{
+
+   font-weight: bold;
+   color: #ffffff;
 }
 
 /* Optional scroll animation */
