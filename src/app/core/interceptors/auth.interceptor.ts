@@ -16,7 +16,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
   
   // List of public endpoints that don't require authentication
-  const publicEndpoints = ['/login', '/register', '/api/auth/login', '/api/auth/register'];
+  const publicEndpoints = ['/api/auth/login'];
   
   // Check if the request URL matches any public endpoint
   const isPublicEndpoint = publicEndpoints.some(endpoint => 

@@ -1,83 +1,60 @@
-<div class="launch-wrap">
-  <div class="brand-mark" aria-hidden="true">UR</div>
-  <h1 class="small-title">Ubuntu Billing — Cashier Access</h1>
-  <p class="lead">Secure sign in for cashiers. Fast, minimal, and designed for busy counters.</p>
-
-  <!-- Trigger -->
-  <button type="button" class="btn btn-lg btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-    <i class="bi bi-box-arrow-in-right me-2"></i> Cashier Sign in
-  </button>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-
-      <!-- Header -->
-      <div class="modal-header">
-        <div class="logo-circle" aria-hidden="true">UR</div>
-        <div>
-          <div class="modal-title" id="loginModalLabel">System Login</div>
-          <div class="text-muted-small">Access for Cashiers & Owners</div>
-        </div>
-
-        <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <!-- Body -->
-      <div class="modal-body">
-        <div class="mb-3 text-center">
-          <small class="text-muted-small">Select your role and sign in</small>
-        </div>
-
-        <form action="#" method="post" novalidate>
-
-          <!-- Role Selection -->
-          <div class="mb-3">
-            <label for="userRole" class="form-label">Role</label>
-            <select id="userRole" class="form-select" required>
-              <option value="" selected disabled>Select your role</option>
-              <option value="OWNER">OWNER</option>
-              <option value="CASHIER">CASHIER</option>
-            </select>
-          </div>
-
-          <!-- Cashier ID -->
-          <div class="mb-3">
-            <label for="cashierId" class="form-label">Cashier / Owner ID</label>
-            <input id="cashierId" name="cashierId" type="text" class="form-control"
-                   placeholder="e.g. CSH-001 / OWN-01" required autocomplete="username">
-          </div>
-
-          <!-- Password -->
-          <div class="mb-3">
-            <label for="cashierPassword" class="form-label">Password</label>
-            <input id="cashierPassword" name="password" type="password" class="form-control"
-                   placeholder="Password" required autocomplete="current-password">
-          </div>
-
-          <!-- Helpers -->
-          <div class="mb-3 helper-row d-flex justify-content-between align-items-center">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="rememberMe">
-              <label class="form-check-label" for="rememberMe">Remember me</label>
-            </div>
-            <a href="#" class="text-decoration-none text-muted-small">Forgot ID?</a>
-          </div>
-
-          <!-- Submit -->
-          <div class="d-grid">
-            <button type="submit" class="btn btn-login">Login</button>
-          </div>
-        </form>
-      </div>
-
-      <!-- Footer -->
-      <div class="modal-footer">
-        <div class="text-muted-small">Need help? <a href="#" class="text-decoration-none">Contact support</a></div>
-      </div>
-
+<div class="login-container">
+  <div class="login-card">
+    <!-- Header -->
+    <div class="login-header">
+      <div class="logo-circle" aria-hidden="true">RB</div>
+      <h1 class="login-title">RestBill System</h1>
+      <p class="login-subtitle">Sign in to continue</p>
     </div>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Login Form -->
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <!-- Username -->
+      <div class="form-group">
+        <label for="username" class="form-label">Username</label>
+        <input 
+          id="username" 
+          name="username" 
+          type="text" 
+          class="form-control"
+          [(ngModel)]="username"
+          placeholder="Enter your username" 
+          required 
+          autocomplete="username"
+          [disabled]="isLoading">
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input 
+          id="password" 
+          name="password" 
+          type="password" 
+          class="form-control"
+          [(ngModel)]="password"
+          placeholder="Enter your password" 
+          required 
+          autocomplete="current-password"
+          [disabled]="isLoading">
+      </div>
+
+      <!-- Submit Button -->
+      <button 
+        type="submit" 
+        class="btn btn-login"
+        [disabled]="isLoading || !username || !password">
+        <span *ngIf="!isLoading">Login</span>
+        <span *ngIf="isLoading">
+          <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+          Logging in...
+        </span>
+      </button>
+    </form>
   </div>
 </div>

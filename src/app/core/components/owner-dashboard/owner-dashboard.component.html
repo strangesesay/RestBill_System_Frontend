@@ -1,1 +1,147 @@
-<p>owner-dashboard works!</p>
+<!-- Sidebar Navigation -->
+<aside class="sidebar" role="navigation" aria-label="Owner navigation">
+  <div class="sidebar-header">
+    <div class="logo">
+      <span class="logo-icon">RB</span>
+      <div class="logo-text">
+        <span class="logo-name">RestBill</span>
+        <span class="logo-role">Owner</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section">
+      <a href="#" class="nav-link active">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">Dashboard</span>
+      </a>
+      <a href="#" class="nav-link">
+        <span class="nav-icon">👥</span>
+        <span class="nav-label">View All Cashiers</span>
+      </a>
+      <a href="#" class="nav-link">
+        <span class="nav-icon">🍽️</span>
+        <span class="nav-label">Manage Menu Items</span>
+      </a>
+      <a href="#" class="nav-link">
+        <span class="nav-icon">📈</span>
+        <span class="nav-label">View Reports</span>
+      </a>
+      <a href="#" class="nav-link">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">System Settings</span>
+      </a>
+    </div>
+
+    <div class="nav-footer">
+      <button class="nav-link logout-btn" (click)="logout()">
+        <span class="nav-icon">🚪</span>
+        <span class="nav-label">Logout</span>
+      </button>
+    </div>
+  </nav>
+</aside>
+
+<!-- Main Content -->
+<main class="dashboard-container" role="main">
+  <!-- Header -->
+  <div class="dashboard-header">
+    <div class="title-wrap">
+      <h1 class="dashboard-title">Owner Dashboard</h1>
+      <p class="dashboard-subtitle">Welcome back, {{ currentUsername }}!</p>
+    </div>
+  </div>
+
+  <!-- KPI Cards Row -->
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <div class="kpi-title">Total Cashiers</div>
+      <div class="kpi-value">0</div>
+      <div class="kpi-meta">Active users</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-title">Today's Sales</div>
+      <div class="kpi-value">$0.00</div>
+      <div class="kpi-meta">0 transactions</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-title">Menu Items</div>
+      <div class="kpi-value">15</div>
+      <div class="kpi-meta">Available items</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-title">System Status</div>
+      <div class="kpi-value">Active</div>
+      <div class="kpi-meta">All systems operational</div>
+    </div>
+  </div>
+
+  <!-- Register Cashier Card -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2 class="card-title">Register New Cashier</h2>
+        <p class="card-subtitle">Add a new cashier to the system</p>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <!-- Success Message -->
+      @if (successMessage) {
+        <div class="alert alert-success" role="alert">
+          {{ successMessage }}
+        </div>
+      }
+
+      <!-- Error Message -->
+      @if (errorMessage) {
+        <div class="alert alert-danger" role="alert">
+          {{ errorMessage }}
+        </div>
+      }
+
+      <!-- Register Form -->
+      <form (ngSubmit)="onRegisterCashier()" #registerForm="ngForm" class="form-grid">
+        <div class="form-group">
+          <label for="cashierUsername" class="form-label">Cashier Username</label>
+          <input 
+            id="cashierUsername" 
+            name="cashierUsername" 
+            type="text" 
+            class="form-control"
+            [(ngModel)]="cashierUsername"
+            placeholder="Enter cashier username" 
+            required
+            [disabled]="isLoading">
+        </div>
+
+        <div class="form-group">
+          <label for="cashierPassword" class="form-label">Cashier Password</label>
+          <input 
+            id="cashierPassword" 
+            name="cashierPassword" 
+            type="password" 
+            class="form-control"
+            [(ngModel)]="cashierPassword"
+            placeholder="Enter cashier password" 
+            required
+            [disabled]="isLoading">
+        </div>
+
+        <button 
+          type="submit" 
+          class="btn btn-primary"
+          [disabled]="isLoading || !cashierUsername || !cashierPassword">
+          @if (!isLoading) {
+            <span>Register Cashier</span>
+          }
+          @if (isLoading) {
+            <span class="spinner"></span>
+            <span>Registering...</span>
+          }
+        </button>
+      </form>
+    </div>
+  </div>
+</main>

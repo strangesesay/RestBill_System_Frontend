@@ -1,33 +1,109 @@
-<!-- Home Hero Section -->
-<section class="hero d-flex align-items-center justify-content-center text-center text-light">
-    <div class="hero-content">
-        <h1 class="display-4 fw-bold mb-4">
-            The Future of Restaurant Billing
-        </h1>
+  <!-- Home Hero Section -->
+  <section class="hero d-flex align-items-center justify-content-center text-center text-light">
+      <div class="hero-content">
+          <h1 class="display-4 fw-bold mb-4">
+              The Fresh Restaurant Billing App
+          </h1>
 
-        <p class="lead mb-4 mx-auto" style="max-width: 650px;">
-            Fast. Secure. Intuitive. A next-generation billing ecosystem engineered for 
-            restaurants that demand excellence. Boost efficiency, cut errors, and elevate customer experience.
-        </p>
+          <p class="lead mb-4 mx-auto" style="max-width: 650px;">
+              Fast. Secure. Intuitive. A next-generation billing ecosystem engineered for 
+              restaurants that demand excellence. Boost efficiency, cut errors, and elevate customer experience.
+          </p>
 
-        <a routerLink="/login" class="btn btn-custom px-5 py-3 fw-semibold">
-            Get Started
-        </a>
+          <!-- <a routerLink="/login" class="btn btn-custom px-5 py-3 fw-semibold">
+              Get Started
+          </a> -->
 
-        <!-- Additional Value Highlights -->
-        <div class="mt-5 hero-stats d-flex flex-wrap justify-content-center gap-4">
-            <div class="p-3 rounded shadow-sm bg-dark bg-opacity-50">
-                <h3 class="fw-bold mb-0">5,000+</h3>
-                <small>Restaurants Onboard</small>
-            </div>
-            <div class="p-3 rounded shadow-sm bg-dark bg-opacity-50">
-                <h3 class="fw-bold mb-0">99.9%</h3>
-                <small>System Uptime</small>
-            </div>
-            <div class="p-3 rounded shadow-sm bg-dark bg-opacity-50">
-                <h3 class="fw-bold mb-0">Global</h3>
-                <small>Enterprise-Ready Solution</small>
-            </div>
+          <!-- Login Modal-->
+
+          <!-- Button trigger modal -->
+  <button type="button" class="btn btn-custom px-5 py-3 fw-semibold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Get Started
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel"> Login</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          
+          <!-- Header -->
+      <div class="login-header">
+        <div class="logo-circle" aria-hidden="true">RB</div>
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Login Form -->
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <!-- Username -->
+        <div class="form-group">
+          <label for="username" class="form-label">Username</label>
+          <input 
+            id="username" 
+            name="username" 
+            type="text" 
+            class="form-control"
+            [(ngModel)]="username"
+            placeholder="Enter your username" 
+            required 
+            autocomplete="username"
+            [disabled]="isLoading">
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <input 
+            id="password" 
+            name="password" 
+            type="password" 
+            class="form-control"
+            [(ngModel)]="password"
+            placeholder="Enter your password" 
+            required 
+            autocomplete="current-password"
+            [disabled]="isLoading">
+        </div>
+
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          class="btn btn-login"
+          [disabled]="isLoading || !username || !password">
+          <span *ngIf="!isLoading">Login</span>
+          <span *ngIf="isLoading">
+            <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+            Please wait
+          </span>
+        </button>
+      </form>
+        </div>
+      </div>
     </div>
-</section>
+  </div>
+
+          <!-- Additional Value Highlights -->
+          <div class="mt-5 hero-stats d-flex flex-wrap justify-content-center gap-4">
+              <div class="p-3 rounded shadow-sm bg-dark bg-opacity-50">
+                  <h3 class="fw-bold mb-0">5,000+</h3>
+                  <small>Restaurants Onboard</small>
+              </div>
+              <div class="p-3 rounded shadow-sm bg-dark bg-opacity-50">
+                  <h3 class="fw-bold mb-0">99.9%</h3>
+                  <small>System Uptime</small>
+              </div>
+              <div class="p-3 rounded shadow-sm bg-dark bg-opacity-50">
+                  <h3 class="fw-bold mb-0">Global</h3>
+                  <small>Enterprise-Ready Solution</small>
+              </div>
+          </div>
+      </div>
+  </section>

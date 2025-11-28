@@ -20,20 +20,9 @@ export interface LoginRequest {
  */
 export interface LoginResponse {
   token: string;
-  user: User;
-  expiresIn: number;
-}
-
-/**
- * User entity
- * Represents an authenticated user in the system
- */
-export interface User {
-  id: number;
+  type: string;
   username: string;
-  email: string;
-  role: UserRole;
-  createdAt: string;
+  role: string;
 }
 
 /**
@@ -41,8 +30,24 @@ export interface User {
  * Defines different access levels and permissions
  */
 export enum UserRole {
-  ADMIN = 'ADMIN',
-  WAITER = 'WAITER',
-  KITCHEN = 'KITCHEN',
+  OWNER = 'OWNER',
   CASHIER = 'CASHIER'
+}
+
+/**
+ * Register cashier request payload
+ */
+export interface RegisterRequest {
+  username: string;
+  password: string;
+}
+
+/**
+ * User entity
+ * Represents a user in the system
+ */
+export interface User {
+  id: number;
+  username: string;
+  role: UserRole;
 }
